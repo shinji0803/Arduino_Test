@@ -1,8 +1,7 @@
 
 uint32_t fast_timer, mid_timer, slow_timer;
 
-extern volatile uint8_t change;
-extern volatile uint16_t pwm_in;
+uint16_t Input[2];
 
 void setup()
 {
@@ -40,13 +39,14 @@ void slow_loop()
 
 void mid_loop()
 {
-  Serial.print(pwm_in);
+  Serial.print(Input[0]);
   Serial.print("\t");
-  Serial.println(change);
+  Serial.println(Input[1]);
 }
 
 void fast_loop()
 {
+  getPWMIn(2, Input);
 }
 
 
